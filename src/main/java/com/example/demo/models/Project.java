@@ -5,6 +5,7 @@ import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name="projects")
@@ -20,7 +21,7 @@ public class Project {
             name ="projects_employees",
             joinColumns = { @JoinColumn(
                     name = "project_id",
-                    nullable = false,
+                    nullable = false
             )},
             inverseJoinColumns = { @JoinColumn(
                     name = "employee_id",
@@ -28,7 +29,7 @@ public class Project {
                     updatable = false
             )}
     )
-    private ArrayList<Employee>employees;
+    private List<Employee> employees;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -53,7 +54,7 @@ public class Project {
         this.name = name;
     }
 
-    public ArrayList<Employee> getEmployees() {
+    public List<Employee> getEmployees() {
         return employees;
     }
 

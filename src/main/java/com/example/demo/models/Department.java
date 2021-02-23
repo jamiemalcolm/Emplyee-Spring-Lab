@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "departments")
@@ -15,7 +16,7 @@ private String name;
 
 @JsonIgnoreProperties({"department"})
 @OneToMany(mappedBy = "department")
-private ArrayList<Employee>employees;
+private List<Employee> employees;
 
 @Id
 @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -40,7 +41,7 @@ private Long id;
         this.name = name;
     }
 
-    public ArrayList<Employee> getEmployees() {
+    public List<Employee> getEmployees() {
         return employees;
     }
 

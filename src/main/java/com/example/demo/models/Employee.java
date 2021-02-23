@@ -5,6 +5,7 @@ import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name="employees")
@@ -30,7 +31,7 @@ public class Employee {
             name ="employees_projects",
             joinColumns = { @JoinColumn(
                     name = "employee_id",
-                    nullable = false,
+                    nullable = false
             )},
             inverseJoinColumns = { @JoinColumn(
                     name = "project_id",
@@ -38,7 +39,7 @@ public class Employee {
                     updatable = false
             )}
     )
-    private ArrayList<Project>projects;
+    private List<Project> projects;
 
     @ManyToOne
     @JoinColumn(name = "department_id", nullable = false)
@@ -101,7 +102,7 @@ public class Employee {
         this.id = id;
     }
 
-    public ArrayList<Project> getProjects() {
+    public List<Project> getProjects() {
         return projects;
     }
 
